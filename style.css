@@ -1467,6 +1467,14 @@ video {
     .section-hero {
         padding-top: 3.5rem;
         padding-bottom: 3.5rem;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hero-media {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .section-about {
@@ -1515,6 +1523,14 @@ video {
 
     .footer-container {
         flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-social {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .scroll-to-top {
@@ -1541,27 +1557,77 @@ video {
 }
 
 @media (max-width: 480px) {
+    .heading-1 {
+        font-size: 36px;
+    }
+
+    .heading-2 {
+        font-size: 24px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .header-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .primary-nav {
+        gap: 1.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.8125rem;
+    }
+
     .section-hero {
+        padding-left: 1rem;
+        padding-right: 1rem;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
     }
 
+    .hero-media {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .portrait-wrapper {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .portrait-image {
+        height: 320px;
+    }
+
     .section-about {
+        padding-left: 1rem;
+        padding-right: 1rem;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
     }
 
     .section-projects {
+        padding-left: 1rem;
+        padding-right: 1rem;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
     }
 
     .section-skills {
+        padding-left: 1rem;
+        padding-right: 1rem;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
     }
 
     .section-contact {
+        padding-left: 1rem;
+        padding-right: 1rem;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
     }
@@ -1572,12 +1638,31 @@ video {
     }
 
     .section-hobbies {
+        padding-left: 1rem;
+        padding-right: 1rem;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
     }
 
+    .hobbies-header {
+        text-align: center;
+    }
+
+    .hobbies-subtitle {
+        font-size: 0.875rem;
+    }
+
     .hobby-card {
         grid-column: auto;
+        padding: 1.25rem;
+    }
+
+    .hobby-title {
+        font-size: 1rem;
+    }
+
+    .hobby-description {
+        font-size: 0.875rem;
     }
 
     .about-media-img {
@@ -1586,5 +1671,34 @@ video {
 
     .hobbies-grid {
         grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        gap: 1.5rem;
+    }
+
+    .footer-brand {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .footer-brand-text {
+        text-align: center;
+    }
+
+    .footer-social {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .footer-social-link {
+        justify-content: center;
+    }
+
+    .footer-copyright {
+        font-size: 0.75rem;
     }
 }
