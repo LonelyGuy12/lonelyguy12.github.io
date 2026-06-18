@@ -1,8 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { Scene3D } from "@/components/Scene3D";
+
+// Lazy load Three.js — it's huge and not needed for first paint
+const Scene3D = lazy(() =>
+  import("@/components/Scene3D").then((m) => ({ default: m.Scene3D }))
+);
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -75,9 +79,15 @@ function Hero() {
 
   return (
     <section id="top" className="relative min-h-[100svh] w-full overflow-hidden">
-      {/* 3D backdrop */}
+      {/* 3D backdrop — lazy loaded so Three.js doesn't block first paint */}
       <div className="absolute inset-0 z-0">
-        <Scene3D />
+        <Suspense
+          fallback={
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,oklch(0.7_0.22_300/0.35),transparent_70%)]" />
+          }
+        >
+          <Scene3D />
+        </Suspense>
       </div>
 
       {/* Vignette overlay for text readability */}

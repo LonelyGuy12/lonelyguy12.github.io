@@ -9,5 +9,16 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   build: {
     outDir: "dist-spa",
+    // Split vendors into separate cacheable chunks
+    rolldownOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("three") || id.includes("@react-three")) return "three-vendor";
+          if (id.includes("framer-motion")) return "framer-vendor";
+          if (id.includes("lenis")) return "lenis-vendor";
+          if (id.includes("node_modules")) return "vendor";
+        },
+      },
+    },
   },
 });
