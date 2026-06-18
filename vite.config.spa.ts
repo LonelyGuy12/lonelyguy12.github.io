@@ -7,6 +7,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // This bypasses TanStack Start's SSR/Nitro setup entirely.
 export default defineConfig({
   plugins: [react(), tailwindcss(), tsconfigPaths()],
+  base: "/idktest/",
   build: {
     outDir: "dist-spa",
   },
